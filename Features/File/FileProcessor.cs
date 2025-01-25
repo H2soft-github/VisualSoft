@@ -79,12 +79,15 @@ namespace VisualSoft.Features.File
         private void ProductsWithMaxNetValue(FileResult fileResult)
         {
             var positions = fileResult.Documents!.SelectMany(x => x.PositionDetails);
-            var max = positions.Max(x => x.NetValue);
-            fileResult.ProductsWithMaxNetValue = String.Join(
-                ",", positions.Where(x => x.NetValue == max)
-                .OrderBy(x => x.ProductName)
-                .Select(x => x.ProductName)
-                .Distinct().ToArray());   
+            if (positions != null && positions.Count() > 0)
+            {
+                var max = positions.Max(x => x.NetValue);
+                fileResult.ProductsWithMaxNetValue = String.Join(
+                    ",", positions.Where(x => x.NetValue == max)
+                    .OrderBy(x => x.ProductName)
+                    .Select(x => x.ProductName)
+                    .Distinct().ToArray());
+            }
         }
 
         private RecordType GetRecordType(string line)
