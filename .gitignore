@@ -1,0 +1,8 @@
+
+*.bin
+/.vs/VisualSoft/DesignTimeBuild
+/.vs/VisualSoft/FileContentIndex
+/.vs/VisualSoft/v17
+/bin/Debug/net9.0
+/.vs/VisualSoft/config/applicationhost.config
+/obj
